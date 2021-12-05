@@ -1,0 +1,20 @@
+:root {
+    --color-primary: #d1efe5;
+    --color-secondary: #fff;
+    --color-accent: #005ff8;
+    --color-contact: #172035;
+    --color-headings: #02021c;
+    --color-body: #918ca4;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  
+  /* Typography */
+  
+  body {
+      
+  }
