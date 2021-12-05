@@ -124,3 +124,9 @@
           padding-left: 0;
       }
   }
+
+  /* Icons */
+  .icon {
+      width: 40px;
+      height: 40px;
+  }
