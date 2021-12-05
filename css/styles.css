@@ -5,6 +5,8 @@
   --color-contact: #172035;
   --color-headings: #02021c;
   --color-body: #918ca4;
+  --color-border: #ccc;
+  --border-radius: 5px;
 }
 
 *,
@@ -126,19 +128,27 @@ a {
 }
 
 /* Icons */
+
 .icon {
   width: 40px;
   height: 40px;
 }
 
+.icon--accent {
+    cursor: pointer;
+    fill: var(--color-accent);
+}
+
+/* Buttons */
+
 .btn {
-  border-radius: 5px;
+  border-radius: var(--border-radius);
   border: 0;
   cursor: pointer;
   font-size: 1.8rem;
   font-weight: 600;
   margin: 1rem 0;
-  padding: 1.5rem 3rem;
+  padding: 1rem 2rem;
   text-align: center;
   text-transform: uppercase;
   white-space: nowrap;
@@ -167,6 +177,45 @@ a {
 
 @media screen and (min-width: 1024px) {
     .btn {
+        font-size: 1.5rem;
+    }
+}
+
+/* Inputs */
+
+.input {
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border);
+    color: var(--color-headings);
+    font-size: 2rem;
+    outline: 0;
+    padding: 1rem 3.5rem;
+}
+
+::placeholder {
+    color: #cdcbd7;
+}
+
+.input-group {
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    display: flex;
+}
+
+.input-group .input {
+    border: 0;
+    flex-grow: 1;
+    padding: 0 1rem;
+}
+
+.input-group .btn {
+    margin: 4px;
+    background: var(--color-accent);
+    color: var(--color-secondary);
+}
+
+@media screen and (min-width: 1024px) {
+    .input {
         font-size: 1.5rem;
     }
 }
