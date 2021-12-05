@@ -1,132 +1,172 @@
 :root {
-    --color-primary: #d1efe5;
-    --color-secondary: #fff;
-    --color-accent: #005ff8;
-    --color-contact: #172035;
-    --color-headings: #02021c;
-    --color-body: #918ca4;
-  }
-  
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
-  
-  /* Typography */
+  --color-primary: #d1efe5;
+  --color-secondary: #fff;
+  --color-accent: #005ff8;
+  --color-contact: #172035;
+  --color-headings: #02021c;
+  --color-body: #918ca4;
+}
 
-  html {
-      font-size: 62.5%;
-  }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
+/* Typography */
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  color: var(--color-body);
+  font-size: 2.5rem;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--color-headings);
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 7rem;
+}
+
+h2 {
+  font-size: 4rem;
+}
+
+h3 {
+  font-size: 3rem;
+}
+
+p {
+  margin-top: 0;
+}
+
+@media screen and (min-width: 1024px) {
   body {
-      font-family: Inter, Arial, Helvetica, sans-serif;
-      color: var(--color-body);
-      font-size: 2.5rem;
-      line-height: 1.5;
-  }
-  
-  h1,
-  h2,
-  h3 {
-      color: var(--color-headings);
-      margin-bottom: 1rem;
+    font-size: 1.8rem;
   }
 
   h1 {
-      font-size: 7rem;
+    font-size: 8rem;
   }
 
   h2 {
-      font-size: 4rem;
+    font-size: 4rem;
   }
 
   h3 {
-      font-size: 3rem;
+    font-size: 2.4rem;
   }
+}
 
-  p {
-      margin-top: 0;
-  }
+/* Links */
 
-  @media screen and (min-width: 1024px) {
-      body {
-          font-size: 1.8rem;
-      }
+a {
+  text-decoration: none;
+}
 
-      h1 {
-          font-size: 8rem;
-      }
+.link-arrow {
+  color: var(--color-accent);
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: bold;
+}
 
-      h2 {
-          font-size: 4rem;
-      }
+.link-arrow::after {
+  content: "-->";
+  margin-left: 5px;
+  transition: margin 0.15s;
+}
 
-      h3 {
-          font-size: 2.4rem;
-      }
-  }
+.link-arrow:hover::after {
+  margin-left: 10px;
+}
 
-  /* Links */
-
-  a {
-      text-decoration: none;
-  }
-
+@media screen and (min-width: 1024px) {
   .link-arrow {
-      color: var(--color-accent);
-      text-transform: uppercase;
-      font-size: 2rem;
-      font-weight: bold;
+    font-size: 1.5rem;
   }
+}
 
-  .link-arrow::after {
-      content: '-->';
-      margin-left: 5px;
-      transition: margin .15s;
-  }
+/* Lists */
 
-  .link-arrow:hover::after {
-      margin-left: 10px;
-  }
+.list {
+  list-style: none;
+  padding-left: 0;
+  color: var(--color-headings);
+}
 
-  @media screen and (min-width: 1024px) {
-      .link-arrow {
-          font-size: 1.5rem;
-      }
-  }
+.list--inline .list__item {
+  display: inline-block;
+  margin-right: 2rem;
+}
 
-  /* Lists */
+.list--tick {
+  list-style-image: url(../images/tick.svg);
+  padding-left: 3rem;
+}
 
-  .list {
-      list-style: none;
-      padding-left: 0;
-      color: var(--color-headings);
-  }
+.list--tick .list__item {
+  padding-left: 0.5rem;
+  margin-bottom: 1rem;
+}
 
-  .list--inline .list__item {
-    display: inline-block;
-    margin-right: 2rem;
-  }
-
-  .list--tick {
-      list-style-image: url(../images/tick.svg);
-      padding-left: 3rem;
-  }
-
+@media screen and (min-width: 1024px) {
   .list--tick .list__item {
-      padding-left: .5rem;
-      margin-bottom: 1rem;
+    padding-left: 0;
   }
+}
 
-  @media screen and (min-width: 1024px) {
-      .list--tick .list__item {
-          padding-left: 0;
-      }
-  }
+/* Icons */
+.icon {
+  width: 40px;
+  height: 40px;
+}
 
-  /* Icons */
-  .icon {
-      width: 40px;
-      height: 40px;
-  }
+.btn {
+  border-radius: 5px;
+  border: 0;
+  cursor: pointer;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 1rem 0;
+  padding: 1.5rem 3rem;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+  border: 2px solid var(--color-accent);
+}
+
+.btn--accent {
+  background: var(--color-accent);
+  color: var(--color-secondary);
+}
+
+.btn--accent:hover {
+    background: none;
+    color: var(--color-accent);
+}
+
+.btn--outline {
+    background: none;
+    color: var(--color-accent);
+}
+
+.btn--outline:hover {
+    background: var(--color-accent);
+    color: var(--color-secondary);
+}
+
+@media screen and (min-width: 1024px) {
+    .btn {
+        font-size: 1.5rem;
+    }
+}
