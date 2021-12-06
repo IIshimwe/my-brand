@@ -21,6 +21,10 @@ html {
   font-size: 62.5%;
 }
 
+::selection {
+    background: var(--color-primary);
+}
+
 body {
   font-family: Inter, Arial, Helvetica, sans-serif;
   color: var(--color-body);
@@ -375,4 +379,31 @@ nav.collapsible--expanded .nav__toggler {
     .nav__item {
         border: 0;
     }
+}
+
+/* Form */
+
+form input {
+    max-width: 40rem;
+    outline: 0;
+    padding: 2rem;
+    border-color: 1px solid var(--color-body);
+}
+
+/* More blogs */
+
+details {
+    padding: 0 2rem;
+}
+
+details summary {
+    color: var(--color-headings);
+    font-weight: bold;
+    padding-bottom: 2rem;
+}
+
+details img {
+    max-width: 89vw;
+    object-fit: cover;
+    margin-bottom: 2rem;
 }
