@@ -16,7 +16,128 @@
 </head>
 
 <body>
+    <!-- Nav bar -->
+    <header>
+        <nav class="nav collapsible">
+            <a class="nav__brand" href="/"><img src="images/logo.png" alt=""></a>
+            <svg class="icon nav__toggler">
+                <use xlink:href="images/sprite.svg#menu"></use>
+            </svg>
+            <ul class="list nav__list collapsible__content">
+                <li class="nav__item"><a href="#">Projects</a></li>
+                <li class="nav__item"><a href="#">Blogs</a></li>
+                <li class="nav__item"><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
+    <!-- Hero -->
+    <section>
+        <div class="grid hero__grid">
+            <header class="hero__profile">
+                <div class="hero__profile-background"></div>
+                <div class="hero__profile-foreground">
+                    <img class="hero__image" src="images/profile.jpg" alt="Profile picture">
+                    <h2 class="hero__profile-name">ISHIMWE Isaac</h2>
+                    <p class="hero__tagline">Software developer.</p>
+                </div>
+            </header>
+            <div class="block container block__content hero__content">
+                <h1 class="block__heading">Hello</h1>
+                <p class="hero__content-tagline">
+                    I’m ISHIMWE a software Developer and designer.
+                    I get pleasure programming Javascript applications and Design. Both frontend and backend.
+                    I built a lot of stuffs for myself as well as for the community to raise their expirience.
+                </p>
+                <a href="#" class="btn btn--accent">Resume</a>
+                <a href="#form__container" class="btn btn--outline">Contact</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills section -->
+    <section class="block skills">
+        <h2 class="block__header">Skills</h2>
+        <div class="container skills__list">
+            <ul class="list list--tick">
+                <li class="list__item">HTML / CSS</li>
+                <li class="list__item">Javascript</li>
+                <li class="list__item">NodeJs</li>
+                <li class="list__item">ReactJs</li>
+            </ul>
+            <ul class="list list--tick">
+                <li class="list__item">Git / GitHub</li>
+                <li class="list__item">Express</li>
+                <li class="list__item">Postgres</li>
+                <li class="list__item">SEO</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Contact section -->
+    <section class="block--dark form">
+        <header class="block__header">
+            <h2 class="block__heading">Contact me</h2>
+        </header>
+
+        <div id="form__container">
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name <span>*</span></label>
+                    <input class="input" type="text" name="name" id="name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email <span>*</span></label>
+                    <input class="input" type="email" name="email" id="email">
+                </div>
+                <div class="message form-group">
+                    <label for="message">Message</label>
+                    <textarea class="input" name="message" id="message"></textarea>
+                </div>
+                <button class="btn btn--accent form__button">Send</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer section -->
+    <footer class="container">
+        <div class="footer__address">
+            <div class="footer__home-address">
+                <h4>address</h4>
+                <p>kigali-rwanda</p>
+                <p>kg 150 street</p>
+                <p>(+250) 788241878</p>
+            </div>
+            <div class="footer__social-media">
+                <div>
+                    <h4>Email</h4>
+                    <a href="mailto:ixacson@gmail.com">ixacson@gmail.com</a>
+                </div>
+                <div class="footer__social-media-address">
+                    <h4>follow</h4>
+                    <div class="footer__icons">
+                        <div>
+                            <a href="https://github.com/IIshimwe" target="_blank"><img src="images/github.png" alt=""
+                                    class="icons"></a>
+                        </div>
+                        <div>
+                            <a href="https://twitter.com/iishimwe_" target="_blank"><img src="images/twitter.png" alt=""
+                                    class="icons"></a>
+                        </div>
+                        <div>
+                            <a href="https://www.linkedin.com/in/iishimwe/" target="_blank"><img
+                                    src="images/linkedin.png" alt="" class="icons"></a>
+                        </div>
+                        <div>
+                            <a href="https://www.instagram.com/ishimweisaka/" target="_blank"><img
+                                    src="images/instagram.png" alt="" class="icons"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="footer__copyright">&copy; 2021 All rights reserved - ISHIMWE Isaac</p>
+    </footer>
 
     <script src="js/main.js"></script>
 </body>
