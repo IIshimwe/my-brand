@@ -604,7 +604,8 @@ textarea {
 }
 
 input[type="text"],
-input[type="email"] {
+input[type="email"],
+input[type="password"] {
   max-width: 50rem;
   resize: vertical;
   width: 100%;
@@ -615,5 +616,54 @@ input[type="email"] {
     margin: auto;
     width: 60rem;
     padding: 2rem 5rem;
+  }
+}
+
+/* Automatic sign in Popup */
+
+.popup {
+  background: #d1efe5;
+  border-radius: 8px;
+  padding: 30px 40px;
+  margin: 10rem auto;
+  width: 300px;
+  text-align: center;
+}
+
+.popup button {
+  display: block;
+  margin: 0 0 20px auto;
+  background: transparent;
+  font-size: 30px;
+  color: #c5c5c5;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+}
+
+.popup button:hover {
+  color: #005ff8;
+}
+
+.popup__forget-password {
+font-size: 1.4rem;
+color: var(--color-headings);
+}
+
+.popup__forget-password:hover {
+  text-decoration: underline;  
+}
+
+.popup input {
+  margin-bottom: 2rem;
+}
+
+.popup a {
+  display: block;
+}
+
+@media screen and (min-width: 768px) {
+  .popup {
+    width: 450px;
   }
 }
