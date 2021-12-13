@@ -78,7 +78,7 @@ p {
   h3 {
     font-size: 2.4rem;
   }
- 
+
   h4 {
     font-size: 1.5rem;
   }
@@ -95,7 +95,6 @@ p {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-
 
 /* Links */
 
@@ -461,7 +460,7 @@ details img {
   display: flex;
 }
 
-.footer__icons img{
+.footer__icons img {
   width: 2.8rem;
   padding-right: 1rem;
 }
@@ -486,7 +485,6 @@ details img {
     display: grid;
     grid-template-columns: 200px 200px;
   }
-
 }
 
 /* Hero */
@@ -502,7 +500,7 @@ details img {
 .hero__profile-foreground {
   background: var(--color-primary);
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 90%);
-  padding: 4rem 0 ;
+  padding: 4rem 0;
   width: 100vw;
   height: 85vh;
   text-align: center;
@@ -549,7 +547,27 @@ details img {
   .hero__content-tagline {
     margin-bottom: 6rem;
     line-height: 1.8;
-    letter-spacing: .3rem;
+    letter-spacing: 0.3rem;
+  }
+}
+
+/* Skills */
+
+.skills__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .skills__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .skills__list .list__item {
+    margin-right: 6rem;
   }
 }
 
@@ -580,7 +598,7 @@ label span {
 
 textarea {
   height: 200px;
-  
+
   resize: vertical;
   width: 100%;
 }
@@ -592,7 +610,7 @@ input[type="email"] {
   width: 100%;
 }
 
-@media screen and (min-width: 768px) { 
+@media screen and (min-width: 768px) {
   #form__container {
     margin: auto;
     width: 60rem;
