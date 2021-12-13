@@ -90,12 +90,6 @@ p {
   display: grid;
 }
 
-/* @media screen and (min-width: 768px) {
-  .grid--1x2 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-} */
-
 @media screen and (min-width: 1024px) {
   .grid--1x3 {
     grid-template-columns: repeat(3, 1fr);
@@ -548,13 +542,6 @@ details img {
     width: 60%;
   }
 
-  /* .hero__image {
-    border-radius: 100%;
-    height: 28rem;
-    object-fit: cover;
-    width: 28rem;
-  } */
-  
   .hero__content .block__heading {
     margin: 3rem 0;
   }
@@ -563,5 +550,52 @@ details img {
     margin-bottom: 6rem;
     line-height: 1.8;
     letter-spacing: .3rem;
+  }
+}
+
+/* Contact form */
+
+#form__container {
+  background: var(--color-secondary);
+  overflow: hidden;
+  margin: 1rem 2rem;
+  padding: 3rem 1rem;
+  border-radius: 7px;
+  position: relative;
+  top: 30px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+label {
+  display: block;
+}
+
+label span {
+  color: red;
+}
+
+.form-group {
+  margin-bottom: 1.3rem;
+}
+
+textarea {
+  height: 200px;
+  
+  resize: vertical;
+  width: 100%;
+}
+
+input[type="text"],
+input[type="email"] {
+  max-width: 50rem;
+  resize: vertical;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) { 
+  #form__container {
+    margin: auto;
+    width: 60rem;
+    padding: 2rem 5rem;
   }
 }
