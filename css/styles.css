@@ -632,51 +632,119 @@ input[type="password"] {
   }
 }
 
+/* DASHBOARD */
+
 /* Automatic sign in Popup */
 
-.popup {
-  background: #d1efe5;
-  border-radius: 8px;
-  padding: 30px 40px;
-  margin: 10rem auto;
-  width: 300px;
-  text-align: center;
+.login-popup {
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  visibility: hidden;
+  opacity: 0;
 }
 
-.popup button {
-  display: block;
-  margin: 0 0 20px auto;
-  background: transparent;
+.login-popup.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.login-popup .box {
+  background-color: var(--color-secondary);
+  display: flex;
+  flex-wrap: wrap;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 750px;
+}
+
+.login-popup .box .img-area {
+  flex: 0 0 50%;
+  max-width: 50%;
+  overflow: hidden;
+  position: relative;
+}
+
+.login-popup .box .img-area .img {
+  background-image: url('../images/profile.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.login-popup .box .form {
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding: 4rem 2rem;
+}
+
+.login-popup .box .form h2 {
+  margin: 0 0 30px;
+  text-transform: uppercase;
+}
+
+.login-popup .box .form .form-contro {
+height: 45px;
+margin-bottom: 30px;
+width: 100%;
+border: 0;
+border-bottom: 1px solid #ccc;
+}
+
+.login-popup .box .form .form-contro:focus {
+  border-bottom: 1px solid var(--color-accent);
+}
+
+.login-popup .box .form label {
+font-size: 15px;
+color: var(--color-body);
+margin-bottom: 3rem;
+}
+
+.login-popup .box .form label span {
+  color: var(--color-body);
+  margin-left: 10px;
+}
+
+.login-popup .box .form button {
+  width: 100%;
+}
+
+.login-popup .box .form .close {
+  position: absolute;
+  right: 10px;
+  top: 0;
   font-size: 30px;
-  color: #c5c5c5;
-  border: 0;
-  outline: none;
   cursor: pointer;
 }
 
-.popup button:hover {
-  color: #005ff8;
+.login-popup .box .form .close:hover {
+  color: red;
 }
 
-.popup__forget-password {
-font-size: 1.4rem;
-color: var(--color-headings);
-}
+@media screen and (max-width: 767px) {
+  .login-popup .box {
+    width: calc(100% - 30px);
+  }
 
-.popup__forget-password:hover {
-  text-decoration: underline;  
-}
+  .login-popup .box .img-area {
+    display: none;
+  }
 
-.popup input {
-  margin-bottom: 2rem;
-}
-
-.popup a {
-  display: block;
-}
-
-@media screen and (min-width: 768px) {
-  .popup {
-    width: 450px;
+  .login-popup .box .form {
+    flex: 0 0 100%;
+    max-width: 100%;
   }
 }

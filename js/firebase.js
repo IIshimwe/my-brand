@@ -1,5 +1,5 @@
 // HOLDS FIREBASE CONFIG
-let appFirebase = {};
+let app_firebase = {};
 
 
 (() => {
@@ -17,7 +17,7 @@ let appFirebase = {};
     // INITIALIZE MY-BRAND APP PROJECT
     firebase.initializeApp(firebaseConfig);
     // TO BE ABLE TO USE 
-    appFirebase = firebase;
+    app_firebase = firebase;
 
     // CREATE
     const createBlog = () => {
