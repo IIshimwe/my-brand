@@ -20,23 +20,33 @@ let app_firebase = {};
     app_firebase = firebase;
 
     // CREATE
-    const createBlog = () => {
-
+    const createFunc = (path, body, errorMessage) => {
+        if (!path || !body) return;
+        app_firebase.database().ref(path).push(body, errorMessage);
     };
 
     // READ
-    const readBlog = () => {
-
+    const readFunc = (path, onPass, onFailure) => {
+        if (!path || !onPass || !onFailure) return;
+        app_firebase.database().ref(path).once('value').then(onPass, onFailure);
     };
 
     // UPDATE
-    const updateBlog = () => {
-
+    const updateFunc = (path, body, errorMessage) => {
+        if (!path || !body) return;
+        app_firebase.database().ref(path).update(body, errorMessage);
     };
 
     // DELETE
-    const deleteBlog = () => {
-
+    const deleteFunc = (path, errorMessage) => {
+        if (!path) return;
+        app_firebase.database().ref(path).remove(errorMessage);
     };
 
+    app_firebase.databaseAPI = {
+        create: createFunc,
+        read: readFunc,
+        update: updateFunc,
+        delete: deleteFunc
+    };
 })();

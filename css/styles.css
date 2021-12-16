@@ -2,7 +2,7 @@
   --color-primary: #d1efe5;
   --color-secondary: #fff;
   --color-accent: #005ff8;
-  --color-contact: #172035;
+  --color-contact: #18191A;
   --color-headings: #02021c;
   --color-body: #918ca4;
   --color-border: #ccc;
@@ -62,7 +62,18 @@ p {
   margin-top: 0;
 }
 
+small {
+  color: #FF0000;
+  display: none;
+}
 
+.form-group.success input {
+  border: 2px solid #14bc2d;
+}
+
+.form-group.error input {
+  border: 2px solid #FF0000;
+}
 
 @media screen and (min-width: 1024px) {
   body {
@@ -194,6 +205,32 @@ a {
   color: var(--color-accent);
 }
 
+.btn--accentt {
+  background: var(--color-accent);
+  color: var(--color-secondary);
+  opacity: .7;
+}
+
+.btn--accentt:hover {
+opacity: 1;
+}
+
+.btn--delete {
+  background: #FF0000;
+  border: 1px solid #FF0000;
+  color: var(--color-secondary);
+  opacity: 0.65;
+}
+
+.btn--delete:hover {
+  opacity: 1;
+}
+
+.btn--accent {
+  background: var(--color-accent);
+  color: var(--color-secondary);
+}
+
 .btn--outline {
   background: none;
   color: var(--color-accent);
@@ -226,9 +263,12 @@ a {
 }
 
 .input-group {
-  border: 1px solid var(--color-border);
   border-radius: var(--border-radius);
+  border: 1px solid var(--color-border);
   display: flex;
+  height: 42px;
+  margin: 6rem 0 6rem 3rem ;
+  width: 502px;
 }
 
 .input-group .input {
@@ -637,7 +677,7 @@ input[type="password"] {
 /* Automatic sign in Popup */
 
 .login-popup {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.84);
   height: 100%;
   left: 0;
   position: fixed;
@@ -747,4 +787,52 @@ margin-bottom: 3rem;
     flex: 0 0 100%;
     max-width: 100%;
   }
+}
+
+/* DASHBOARD - Articles */
+
+table {
+  width: 90%;
+  padding: 0 auto;
+}
+th {
+  color: var(--color-headings);
+  font-size: 2rem;
+  border-bottom: 2px solid var(--color-contact);
+  border-collapse: collapse;
+  text-transform: uppercase;
+}
+.action {
+  text-align: center;
+}
+
+ table, td {
+  padding: 1.5rem 0 1.5rem 2rem;
+  /* text-align: center;   */
+}
+
+td, th {
+  text-align: left;
+  width: fit-content;
+}
+
+/* tr:nth-child(even) {
+  background-color: #dddddd;
+} */
+
+/* .no {
+  background: var(--color-accent);
+  border-radius: 7px;
+  text-align: center;
+  color: var(--color-secondary);
+  width: 2px;
+  height: 2px;
+} */
+
+.input-search {
+  margin-left: 5rem;
+}
+
+.new-article {
+  margin: 5rem 0 5rem 38rem;
 }
