@@ -203,11 +203,22 @@ a {
   text-align: center;
   text-transform: uppercase;
   white-space: nowrap;
-  border: 2px solid var(--color-accent);
+}
+
+.btn--skin-none {
+  border: 0;
+  background: none;
+  color: #9CA3AF;
+  padding: 0 1rem 0 0;
+}
+
+.btn--skin-none:hover {
+  color: var(--color-accent);
 }
 
 .btn--accent {
   background: var(--color-accent);
+  border: 2px solid var(--color-accent);
   color: var(--color-secondary);
 }
 
@@ -246,13 +257,9 @@ opacity: 1;
   border-color: #FF0000;
 }
 
-.btn--accent {
-  background: var(--color-accent);
-  color: var(--color-secondary);
-}
-
 .btn--outline {
   background: none;
+  border: 2px solid var(--color-accent);
   color: var(--color-accent);
 }
 
@@ -279,12 +286,12 @@ opacity: 1;
 }
 
 ::placeholder {
-  color: #cdcbd7;
+  color: #9CA3AF;
 }
 
 .input-group {
   border-radius: var(--border-radius);
-  border: 1px solid var(--color-border);
+  border: 1px solid #9CA3AF;
   display: flex;
   height: 42px;
   margin: 0 0 6rem 3rem ;
@@ -297,11 +304,6 @@ opacity: 1;
   padding: 0 1rem;
 }
 
-.input-group .btn {
-  margin: 4px;
-  background: var(--color-accent);
-  color: var(--color-secondary);
-}
 
 @media screen and (min-width: 1024px) {
   .input {
@@ -485,6 +487,7 @@ form input {
   display: flex;
   margin: 0 3rem 3rem;
   justify-content: space-around;
+  padding-bottom: 0;
 }
 
 .recent-articles {
@@ -542,6 +545,33 @@ form input {
   object-fit: cover;
 }
 
+/* News letter subscription */
+
+.news-letter-subs-container {
+  display: flex;
+  background: var(--color-contact);
+  border-radius: 7px;
+  /* box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; */
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  padding: 10rem 0;
+}
+
+.news-letter-subs-container p {
+  color: #9CA3AF;
+  font-size: 1.7rem;
+  max-width: 40rem;
+  padding-left: 13rem;
+}
+
+.input-group .input--subs {
+  border: 0;
+  color: var(--color-secondary);
+  background: var(--color-contact);
+}
+
+.news-letter-form:focus-within {
+  border: 1px solid var(--color-accent);
+}
 
 /* Hero */
 
@@ -658,7 +688,6 @@ label span {
 
 textarea {
   height: 200px;
-
   resize: vertical;
   width: 100%;
 }
