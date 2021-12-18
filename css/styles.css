@@ -161,6 +161,10 @@ a {
   margin-bottom: 1rem;
 }
 
+.list__item a {
+  color: var(--color-body);
+}
+
 @media screen and (min-width: 1024px) {
   .list--tick .list__item {
     padding-left: 0;
@@ -177,6 +181,13 @@ a {
 .icon--accent {
   cursor: pointer;
   fill: var(--color-accent);
+}
+
+.icon-search img{
+  width: 3rem;
+  height: 3rem;
+  opacity: .2;
+  margin-top: .5rem;
 }
 
 /* Buttons */
@@ -276,7 +287,7 @@ opacity: 1;
   border: 1px solid var(--color-border);
   display: flex;
   height: 42px;
-  margin: 6rem 0 6rem 3rem ;
+  margin: 0 0 6rem 3rem ;
   width: 502px;
 }
 
@@ -469,21 +480,62 @@ form input {
 
 /* More blogs */
 
-details {
-  padding: 0 2rem;
+
+.blog-content-area {
+  display: flex;
+  margin: 0 3rem 3rem;
+  justify-content: space-around;
 }
 
-details summary {
+.recent-articles {
+  margin-top: 8rem;
+  margin-left: 15rem;
+  max-width: 300px;
+}
+
+.recent-articles__header {
+  text-transform: none;
+  margin-left: 1rem;
   color: var(--color-headings);
-  font-weight: bold;
-  padding-bottom: 2rem;
 }
 
-details img {
-  max-width: 89vw;
-  object-fit: cover;
-  margin-bottom: 2rem;
+.recent-articles .list .list__item a {
+  height: 17px;
+  font-size: 1.4rem;
+  overflow: hidden;
 }
+
+.blog-post-card-wrapper {
+  display: flex;
+  margin-bottom: 6rem;
+}
+
+.blog__header {
+  max-width: 41.2rem;
+}
+
+.blog__header h1 {
+  font-size: 3rem;
+  margin-top: 0;
+  line-height: 1.2;
+  color: var(--color-headings);
+}
+
+.blog__header p {
+  font-size: 1.6rem;
+  height: 108px;
+  overflow: hidden;
+}
+
+.blog__image img {
+  width: 24.8rem;
+  height: 13rem;
+  border-radius: 5px;
+  padding-top: 1rem;
+  object-fit: cover;
+  padding-left: 3rem;
+}
+
 
 /* Hero */
 
