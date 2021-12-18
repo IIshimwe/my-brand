@@ -499,10 +499,12 @@ form input {
   color: var(--color-headings);
 }
 
-.recent-articles .list .list__item a {
-  height: 17px;
-  font-size: 1.4rem;
-  overflow: hidden;
+.recent-articles .list__item a {
+  font-size: 1.5rem;
+}
+
+.recent-articles .list__item a:hover {
+  color: var(--color-accent);
 }
 
 .blog-post-card-wrapper {
@@ -517,6 +519,7 @@ form input {
 .blog__header h1 {
   font-size: 3rem;
   margin-top: 0;
+  margin-bottom: 3rem;
   line-height: 1.2;
   color: var(--color-headings);
 }
@@ -527,13 +530,16 @@ form input {
   overflow: hidden;
 }
 
+.blog__image {
+  padding-top: 1rem;
+  padding-left: 3rem;
+}
+
 .blog__image img {
   width: 24.8rem;
   height: 13rem;
-  border-radius: 5px;
-  padding-top: 1rem;
+  border-radius: 7px;
   object-fit: cover;
-  padding-left: 3rem;
 }
 
 
