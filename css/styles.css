@@ -226,6 +226,15 @@ opacity: 1;
   opacity: 1;
 }
 
+.btnlogout {
+  opacity: .5;
+}
+
+.btnlogout:hover {
+  opacity: 1;
+  border-color: #FF0000;
+}
+
 .btn--accent {
   background: var(--color-accent);
   color: var(--color-secondary);
@@ -480,7 +489,6 @@ details img {
 
 .hero__grid {
   grid-template-rows: repeat(2, 1fr);
-/* height: auto; */
   margin-top: 3px;
 }
 
@@ -684,12 +692,17 @@ input[type="password"] {
   top: 0;
   width: 100%;
   z-index: 1;
-  visibility: hidden;
+  display: none;
   opacity: 0;
 }
 
 .login-popup.show {
-  visibility: visible;
+  display: block;
+  opacity: 1;
+}
+
+.login-popup.hide {
+  visibility: hidden;
   opacity: 1;
 }
 
@@ -808,7 +821,6 @@ th {
 
  table, td {
   padding: 1.5rem 0 1.5rem 2rem;
-  /* text-align: center;   */
 }
 
 td, th {
@@ -816,18 +828,9 @@ td, th {
   width: fit-content;
 }
 
-/* tr:nth-child(even) {
-  background-color: #dddddd;
-} */
-
-/* .no {
-  background: var(--color-accent);
-  border-radius: 7px;
-  text-align: center;
-  color: var(--color-secondary);
-  width: 2px;
-  height: 2px;
-} */
+tr:nth-child(even) {
+  background-color: var(--color-primary);
+}
 
 .input-search {
   margin-left: 5rem;

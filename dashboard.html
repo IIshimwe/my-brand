@@ -17,47 +17,18 @@
 
 <body>
     <header>
-        <nav class="nav collapsible">
+        <nav class="nav">
             <a class="nav__brand" href="/"><img src="images/logo.png" alt=""></a>
-            <svg class="icon nav__toggler">
-                <use xlink:href="images/sprite.svg#menu"></use>
-            </svg>
-            <ul class="list nav__list collapsible__content">
-                <li class="nav__item"><a href="#">Projects</a></li>
-                <li class="nav__item"><a href="#">Blogs</a></li>
-                <li class="nav__item"><a href="#form__container">Contact</a></li>
-            </ul>
+            <li class="list btn btnlogout"><a href="/">Sign Out</a></li>
         </nav>
     </header>
-    <!-- Signin popup -->
-    <div class="login-popup">
-        <div class="box">
-            <div class="img-area">
-                <div class="img"></div>
-            </div>
-            <div class="form">
-                <div class="close">&times;</div>
-                <h2>Sign in</h2>
-                <form>
-                    <div class="form-grou">
-                        <input type="text" name="" id="" placeholder="example@gmail.com" class="form-contro">
-                        <small></small>
-                    </div>
-                    <div class="form-grou">
-                        <input type="password" name="" id="" placeholder="Password..." class="form-contro">
-                        <small></small>
-                    </div>
-                    <label><input type="checkbox"><span>Remember Me</span></label>
-                    <button type="button" class="btn btn--accent btn-signin"> Log in</button>
-                </form>
-            </div>
-        </div>
-    </div>
 
+    <div id="signed-in"></div>
 
     <div>
         <input type="text" class="input input-search" placeholder="Search article...">
-        <span><button class="btn btn--accentt new-article">New Article</button></span>
+        <span><button class="btn btn--accentt new-article" onclick="window.location.href = 'newarticle.html'">New
+                Article</button></span>
     </div>
 
     <!-- Articles table -->
@@ -74,21 +45,39 @@
                 <tr>
                     <td class="no">1</td>
                     <td>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias, sed!Molestias,
-                        sed!Molestias,
+                        <span class="card__header">
+                            <img src="images/profile.jpg" alt="" style="width: 5rem; height: 3rem; border-radius: 5px;">
+                        </span>
+                        <span>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias,
+                        </span>
                     </td>
-                    <td><a href="#" class="btn btn--accentt btn-table"><span>Edit</span></a></td>
-                    <td><a href="#" class="btn btn--delete btn-table"><span>Delete</span></a></td>
+                    <td><a href="#" class="btn btn--accentt"><span>Edit</span></a></td>
+                    <td><a href="#" class="btn btn--delete"><span>Delete</span></a></td>
                 </tr>
                 <tr>
                     <td class="no">2</td>
-                    <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias, sed!</td>
+                    <td>
+                        <span class="card__header">
+                            <img src="images/profile.jpg" alt="" style="width: 5rem; height: 3rem; border-radius: 5px;">
+                        </span>
+                        <span>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias,
+                        </span>
+                    </td>
                     <td><a href="#" class="btn btn--accentt">Edit</a></td>
                     <td><a href="#" class="btn btn--delete">Delete</a></td>
                 </tr>
                 <tr>
                     <td class="no">3</td>
-                    <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias, sed!</td>
+                    <td>
+                        <span class="card__header">
+                            <img src="images/profile.jpg" alt="" style="width: 5rem; height: 3rem; border-radius: 5px;">
+                        </span>
+                        <span>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias,
+                        </span>
+                    </td>
                     <td><a href="#" class="btn btn--accentt">Edit</a></td>
                     <td><a href="#" class="btn btn--delete">Delete</a></td>
                 </tr>
@@ -100,37 +89,79 @@
                 </tr>
                 <tr>
                     <td class="no">5</td>
-                    <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias, sed!</td>
+                    <td>
+                        <span class="card__header">
+                            <img src="images/profile.jpg" alt="" style="width: 5rem; height: 3rem; border-radius: 5px;">
+                        </span>
+                        <span>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias,
+                        </span>
+                    </td>
                     <td><a href="#" class="btn btn--accentt">Edit</a></td>
                     <td><a href="#" class="btn btn--delete">Delete</a></td>
                 </tr>
                 <tr>
                     <td class="no">6</td>
-                    <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias, sed!</td>
+                    <td>
+                        <span class="card__header">
+                            <img src="images/profile.jpg" alt="" style="width: 5rem; height: 3rem; border-radius: 5px;">
+                        </span>
+                        <span>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias,
+                        </span>
+                    </td>
                     <td><a href="#" class="btn btn--accentt">Edit</a></td>
                     <td><a href="#" class="btn btn--delete">Delete</a></td>
                 </tr>
                 <tr>
                     <td class="no">7</td>
-                    <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias, sed!</td>
+                    <td>
+                        <span class="card__header">
+                            <img src="images/profile.jpg" alt="" style="width: 5rem; height: 3rem; border-radius: 5px;">
+                        </span>
+                        <span>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias,
+                        </span>
+                    </td>
                     <td><a href="#" class="btn btn--accentt">Edit</a></td>
                     <td><a href="#" class="btn btn--delete">Delete</a></td>
                 </tr>
                 <tr>
                     <td class="no">8</td>
-                    <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias, sed!</td>
+                    <td>
+                        <span class="card__header">
+                            <img src="images/profile.jpg" alt="" style="width: 5rem; height: 3rem; border-radius: 5px;">
+                        </span>
+                        <span>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias,
+                        </span>
+                    </td>
                     <td><a href="#" class="btn btn--accentt">Edit</a></td>
                     <td><a href="#" class="btn btn--delete">Delete</a></td>
                 </tr>
                 <tr>
                     <td class="no">9</td>
-                    <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias, sed!</td>
+                    <td>
+                        <span class="card__header">
+                            <img src="images/profile.jpg" alt="" style="width: 5rem; height: 3rem; border-radius: 5px;">
+                        </span>
+                        <span>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias,
+                        </span>
+                    </td>
                     <td><a href="#" class="btn btn--accentt">Edit</a></td>
                     <td><a href="#" class="btn btn--delete">Delete</a></td>
                 </tr>
                 <tr>
                     <td class="no">10</td>
-                    <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias, sed!</td>
+                    <td>
+                        <span class="card__header">
+                            <img src="images/profile.jpg" alt="" style="width: 5rem; height: 3rem; border-radius: 5px;">
+                        </span>
+                        <span>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias,
+                        </span>
+                    </td>
                     <td><a href="#" class="btn btn--accentt">Edit</a></td>
                     <td><a href="#" class="btn btn--delete">Delete</a></td>
                 </tr>
@@ -187,6 +218,7 @@
 
     <!-- FIREBASE FILE  -->
     <script src="js/firebase.js"></script>
+
     <!-- JAVASCRIPT FILE -->
     <script src="js/main.js"></script>
 </body>
