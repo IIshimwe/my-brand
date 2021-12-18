@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs</title>
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <!-- CSS Sheet -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- NAVBAR SECTION -->
+
+    <header>
+        <nav class="nav collapsible">
+            <a class="nav__brand" href="/"><img src="images/logo.png" alt=""></a>
+            <svg class="icon nav__toggler">
+                <use xlink:href="images/sprite.svg#menu"></use>
+            </svg>
+            <ul class="list nav__list collapsible__content">
+                <li class="nav__item"><a href="#">Projects</a></li>
+                <li class="nav__item"><a href="/blogs.html">Blogs</a></li>
+                <li class="nav__item"><a href="#form__container">Contact</a></li>
+                <li class="nav__item"><a class="signin-popup">Sign in</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Articles -->
+
+
+    <!-- FOOTER SECTION -->
+
+    <footer class="container">
+        <div class="footer__address">
+            <div class="footer__home-address">
+                <h4>address</h4>
+                <p>kigali-rwanda</p>
+                <p>kg 150 street</p>
+                <p>(+250) 788241878</p>
+            </div>
+            <div class="footer__social-media">
+                <div>
+                    <h4>Email</h4>
+                    <a href="mailto:ixacson@gmail.com">ixacson@gmail.com</a>
+                </div>
+                <div class="footer__social-media-address">
+                    <h4>follow</h4>
+                    <div class="footer__icons">
+                        <div>
+                            <a href="https://github.com/IIshimwe" target="_blank"><img src="images/github.png" alt=""
+                                    class="icons"></a>
+                        </div>
+                        <div>
+                            <a href="https://twitter.com/iishimwe_" target="_blank"><img src="images/twitter.png" alt=""
+                                    class="icons"></a>
+                        </div>
+                        <div>
+                            <a href="https://www.linkedin.com/in/iishimwe/" target="_blank"><img
+                                    src="images/linkedin.png" alt="" class="icons"></a>
+                        </div>
+                        <div>
+                            <a href="https://www.instagram.com/ishimweisaka/" target="_blank"><img
+                                    src="images/instagram.png" alt="" class="icons"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="footer__copyright">&copy; 2021 All rights reserved - ISHIMWE Isaac</p>
+    </footer>
+
+    <!-- CONNECT TO FIREBASE REMOTE FILES -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+    <!-- FIREBASE FILE  -->
+    <script src="js/firebase.js"></script>
+    <!-- AUTHENTICATION FILE -->
+    <script src="js/auth.js"></script>
+    <!-- JAVASCRIPT FILE -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

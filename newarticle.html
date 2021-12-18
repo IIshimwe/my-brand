@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome - My Brand</title>
+    <title>New article</title>
     <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,108 +28,33 @@
                 <li class="nav__item"><a href="#">Projects</a></li>
                 <li class="nav__item"><a href="/blogs.html">Blogs</a></li>
                 <li class="nav__item"><a href="#form__container">Contact</a></li>
-                <li class="nav__item"><a class="signin-popup">Sign in</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Popup -->
-
-    <div class="login-popup">
-        <div class="box">
-            <div class="img-area">
-                <div class="img"></div>
-            </div>
-            <div class="form">
-                <div class="close">&times;</div>
-                <h2>Sign in</h2>
-                <form id="login-form">
-                    <div class="form-grou">
-                        <input type="email" name="email" id="login-email" placeholder="example@gmail.com"
-                            class="form-contro">
-                        <small></small>
-                    </div>
-                    <div class="form-grou">
-                        <input type="password" name="password" id="login-pwd" placeholder="Password..."
-                            class="form-contro">
-                        <small></small>
-                    </div>
-                    <label><input type="checkbox"><span>Remember Me</span></label>
-                    <button type="button" class="btn btn--accent btn-login" id="login-btn">Sign in</button>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- HERO SECTION -->
-
-    <section>
-        <div class="grid hero__grid">
-            <header class="hero__profile">
-                <div class="hero__profile-background"></div>
-                <div class="hero__profile-foreground">
-                    <img class="hero__image" src="images/profile.jpg" alt="Profile picture">
-                    <h2 class="hero__profile-name">ISHIMWE Isaac</h2>
-                    <p class="hero__tagline">Software developer.</p>
-                </div>
-            </header>
-            <div class="block container block__content hero__content">
-                <h1 class="block__heading">Hello</h1>
-                <p class="hero__content-tagline">
-                    I’m ISHIMWE a software Developer and designer.
-                    I get pleasure programming Javascript applications and Design. Both frontend and backend.
-                    I built a lot of stuffs for myself as well as for the community to raise their expirience.
-                </p>
-                <a href="#" class="btn btn--accent">Resume</a>
-                <a href="#form__container" class="btn btn--outline">Contact</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- SKILLS SECTION -->
-
-    <section class="block skills">
-        <h2 class="block__header">Skills</h2>
-        <div class="container skills__list">
-            <ul class="list list--tick">
-                <li class="list__item">HTML / CSS</li>
-                <li class="list__item">Javascript</li>
-                <li class="list__item">NodeJs</li>
-                <li class="list__item">ReactJs</li>
-            </ul>
-            <ul class="list list--tick">
-                <li class="list__item">Git / GitHub</li>
-                <li class="list__item">Express</li>
-                <li class="list__item">Postgres</li>
-                <li class="list__item">SEO</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- CONTACT SECTION -->
-
     <section class="block--dark form">
         <header class="block__header">
-            <h2 class="block__heading">Contact me</h2>
+            <h2 class="block__heading">New article</h2>
         </header>
 
         <div id="form__container">
             <form action="/" class="contact-form" id="form" method="GET">
                 <div class="form-group">
-                    <label for="name">Name <span>*</span></label>
-                    <input class="input" type="text" name="name" id="name">
+                    <label for="name">Title</label>
+                    <input class="input" type="text" name="name" id="article-title">
                     <small>Error</small>
                 </div>
                 <div class="form-group">
-                    <label for="email">Email <span>*</span></label>
-                    <input class="input" type="email" name="email" id="email">
+                    <label for="email">Image</label>
+                    <input class="input" type="file" name="image" accept="image/png, image/jpeg" id="article-image"
+                        onchange="chooseFile(event)">
                     <small>Error</small>
                 </div>
                 <div class="message form-group">
-                    <label for="message">Message</label>
-                    <textarea class="input" name="message" id="message"></textarea>
+                    <label for="message">Body</label>
+                    <textarea class="input" name="message" id="article-body"></textarea>
                 </div>
-                <button onclick="mainFunc.Create()" class="btn btn--accentt form__button">Send</button>
+                <button onclick="mainFunc.Create()" class="btn btn--accentt form__button">Post</button>
                 <!-- <button onclick="mainFunc.Read()" class="btn btn--accentt form__button">Read</button> -->
             </form>
         </div>
@@ -184,8 +109,6 @@
 
     <!-- FIREBASE FILE  -->
     <script src="js/firebase.js"></script>
-    <!-- AUTHENTICATION FILE -->
-    <script src="js/auth.js"></script>
     <!-- JAVASCRIPT FILE -->
     <script src="js/main.js"></script>
 </body>

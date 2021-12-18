@@ -6,9 +6,33 @@ collapsibles.forEach((item) =>
     })
 );
 
+/******************** AUTOMATIC POPUP ON PAGE LOAD ************/
+
+const loginPopup = document.querySelector('.login-popup');
+const closeBtn = document.querySelector('.close');
+// const signinBtn = document.querySelector('#login-btn');
+const testBtn = document.querySelector('.signin-popup');
+
+testBtn.addEventListener('click', () => {
+    loginPopup.classList.add('show');
+});
+
+closeBtn.addEventListener('click', () => {
+    window.location.replace("index.html");
+
+    // location.href = "http://127.0.0.1:5500/index.html";
+});
+
+// signinBtn.addEventListener('click', () => {
+//     // loginPopup.classList.remove('show');
+//     window.location.replace("dashboard.html");
+// });
+
+
 // FORM VALIDATIONS
 
 // Contact form validation
+// Contact form inputs
 const userName = document.getElementById('name');
 const userEmail = document.getElementById('email');
 const form = document.getElementById('form');
@@ -20,6 +44,7 @@ const validateInputs = () => {
         onError(userName, 'Name cannot be empty');
     } else {
         onSuccess(userName);
+        form.reset();
     }
 
     if (userEmail.value.trim() === '') {
@@ -29,6 +54,7 @@ const validateInputs = () => {
             onError(userEmail, 'Email is not valid');
         } else {
             onSuccess(userEmail);
+            form.reset();
         }
     }
 };
@@ -65,54 +91,36 @@ const validateEmail = (email) => {
         );
 };
 
-/******************************************************************************************8 */
-
-// FIREBASE STUFFS
+// FIREBASE STUFFS - Connect to database
 let mainFunc = {};
 
 (() => {
 
-    // AUTHENTICATION
-    // app_firebase.auth().createUserWithEmailAndPassword(email = 'isaac@gmail.com', password = '_isaac123')
-    //     .then((userCredential) => {
-    //         // Signed in 
-    //         var user = userCredential.user;
-    //         // ...
-    //         console.log(user);
-    //     })
-    //     .catch((error) => {
-    //         let errorCode = error.code;
-    //         let errorMessage = error.message;
-    //         console.log(errorCode);
-    //         console.log(errorMessage);
-    //     });
-
-    const errorMessage = (error) => {
-        if (error)
-            console.log(error);
-        console.log('Request handled successfully');
-    };
-
     // CREATE
-    const createMeth = () => {
+    const createContactMsg = () => {
+        // Create  a user message/query
         const path = `Inquiry/`;
         const name = userName.value;
         const email = userEmail.value;
         const msg = inquiryMsg.value;
-        // const allMessages = [];
 
         const createQuery = {
             name,
             email,
             msg
         };
-        // allMessages.push(createQuery);
 
         app_firebase.databaseAPI.create(path, createQuery, errorMessage);
+
+        // Create article
+        const articleTitle = document.querySelector('#artile-title');
+        const articleImg = document.querySelector('#artile-image');
+        const articleBody = document.querySelector('#artile-body');
     };
 
     // READ
     const readMeth = () => {
+        // Read user message/query
         const path = `Inquiry/`;
         const onPass = snapShop => {
             if (snapShop && snapShop.val()) {
@@ -135,29 +143,7 @@ let mainFunc = {};
 
     };
 
-    mainFunc.Create = createMeth;
+    mainFunc.Create = createContactMsg;
     mainFunc.Read = readMeth;
 })();
-
-
-/******************** AUTOMATIC POPUP ON PAGE LOAD ************/
-
-// const loginPopup = document.querySelector('.login-popup');
-// const closeBtn = document.querySelector('.close');
-// const signinBtn = document.querySelector('.btn-signin');
-
-// window.addEventListener('load', () => {
-//     setTimeout(() => {
-//         loginPopup.classList.add('show');
-//     }, 500);
-// });
-
-// closeBtn.addEventListener('click', () => {
-//     location.href = "http://127.0.0.1:5500/index.html";
-// });
-
-// signinBtn.addEventListener('click', () => {
-//     location.href = "http://127.0.0.1:5500/dashboard.html";
-//     loginPopup.classList.remove('show');
-// });
 
