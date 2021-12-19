@@ -10,7 +10,6 @@ collapsibles.forEach((item) =>
 
 const loginPopup = document.querySelector('.login-popup');
 const closeBtn = document.querySelector('.close');
-// const signinBtn = document.querySelector('#login-btn');
 const testBtn = document.querySelector('.signin-popup');
 
 testBtn.addEventListener('click', () => {
@@ -19,8 +18,6 @@ testBtn.addEventListener('click', () => {
 
 closeBtn.addEventListener('click', () => {
     window.location.replace("index.html");
-
-    // location.href = "http://127.0.0.1:5500/index.html";
 });
 
 // signinBtn.addEventListener('click', () => {
@@ -32,64 +29,69 @@ closeBtn.addEventListener('click', () => {
 // FORM VALIDATIONS
 
 // Contact form validation
-// Contact form inputs
-const userName = document.getElementById('name');
-const userEmail = document.getElementById('email');
-const form = document.getElementById('form');
-const inquiryMsg = document.getElementById('message');
+const isValidEmail = (email) => {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+};
+
+const form = document.querySelector('#contact-form');
+const nameInput = document.querySelector('input[name="name"]');
+const emailInput = document.querySelector('input[name="emails"]');
+const thankYou = document.querySelector('.thank-you-msg');
+// Helps loop through and use it on adding event to each input rather than creating eventListener to each input itself
+const inputs = [nameInput, emailInput];
+let isFormValid = false;
+// Prevent auto next input validation
+let isValidationOn = false;
+
+// A helper function of adding/removing classes
+const resetInput = element => {
+    element.classList.remove('invalid');
+    element.nextElementSibling.classList.add('hide-error-txt');
+};
+
+const invalidateInput = element => {
+    element.classList.add('invalid');
+    element.nextElementSibling.classList.remove('hide-error-txt');
+};
 
 const validateInputs = () => {
-    // Check if Name is empty
-    if (userName.value.trim() === '') {
-        onError(userName, 'Name cannot be empty');
-    } else {
-        onSuccess(userName);
-        form.reset();
+    if (!isValidationOn) return;
+    isFormValid = true;
+    // At first place remove red border on input as well as red error message
+    inputs.forEach(resetInput);
+
+    // Is name input empty
+    if (!nameInput.value) {
+        // If input is empty add red border to the input and display red error message
+        invalidateInput(nameInput);
+        isFormValid = false;
     }
 
-    if (userEmail.value.trim() === '') {
-        onError(userEmail, 'Email cannot be empty');
-    } else {
-        if (!validateEmail(userEmail.value.trim())) {
-            onError(userEmail, 'Email is not valid');
-        } else {
-            onSuccess(userEmail);
-            form.reset();
-        }
+    // Is a valid email input empty
+    if (!isValidEmail(emailInput.value)) {
+        invalidateInput(emailInput);
+        isFormValid = false;
     }
 };
 
-
-form.addEventListener('submit', e => {
-    e.preventDefault();
+form.addEventListener('submit', event => {
+    isValidationOn = true;
+    event.preventDefault();
     validateInputs();
+    if (isFormValid) {
+        // If form is valid remove it and display thank you message
+        form.remove();
+        thankYou.classList.remove('hide-error-txt');
+    }
 });
 
-const onSuccess = (input) => {
-    const parentElement = input.parentElement;
-    const userNameErrorMsg = parentElement.querySelector('small');
-    userNameErrorMsg.style.display = 'none';
-    userNameErrorMsg.innerText = '';
-    parentElement.classList.remove('error');
-    parentElement.classList.add('success');
-};
-
-const onError = (input, message) => {
-    const parentElement = input.parentElement;
-    const userNameErrorMsg = parentElement.querySelector('small');
-    userNameErrorMsg.style.display = 'block';
-    userNameErrorMsg.innerText = message;
-    parentElement.classList.add('error');
-    parentElement.classList.remove('success');
-};
-
-const validateEmail = (email) => {
-    return String(email)
-        .toLowerCase()
-        .match(
-            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-        );
-};
+// If input has a value
+inputs.forEach(input => {
+    input.addEventListener('input', () => {
+        validateInputs();
+    });
+});
 
 // FIREBASE STUFFS - Connect to database
 let mainFunc = {};
