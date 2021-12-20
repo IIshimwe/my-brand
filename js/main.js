@@ -20,12 +20,6 @@ closeBtn.addEventListener('click', () => {
     window.location.replace("index.html");
 });
 
-// signinBtn.addEventListener('click', () => {
-//     // loginPopup.classList.remove('show');
-//     window.location.replace("dashboard.html");
-// });
-
-
 // FORM VALIDATIONS
 
 // Contact form validation
@@ -37,6 +31,7 @@ const isValidEmail = (email) => {
 const form = document.querySelector('#contact-form');
 const nameInput = document.querySelector('input[name="name"]');
 const emailInput = document.querySelector('input[name="emails"]');
+const messageInput = document.querySelector('textarea[name="message"]');
 const thankYou = document.querySelector('.thank-you-msg');
 // Helps loop through and use it on adding event to each input rather than creating eventListener to each input itself
 const inputs = [nameInput, emailInput];
@@ -96,15 +91,22 @@ inputs.forEach(input => {
 // FIREBASE STUFFS - Connect to database
 let mainFunc = {};
 
+let user = null;
+const messageHandler = (error) => {
+    if (error)
+        console.log(error);
+    console.log('Request handled successfully');
+};
+
 (() => {
 
     // CREATE
     const createContactMsg = () => {
         // Create  a user message/query
         const path = `Inquiry/`;
-        const name = userName.value;
-        const email = userEmail.value;
-        const msg = inquiryMsg.value;
+        const name = nameInput.value;
+        const email = emailInput.value;
+        const msg = messageInput.value;
 
         const createQuery = {
             name,
@@ -112,12 +114,12 @@ let mainFunc = {};
             msg
         };
 
-        app_firebase.databaseAPI.create(path, createQuery, errorMessage);
+        app_firebase.databaseAPI.create(path, createQuery, messageHandler);
 
         // Create article
-        const articleTitle = document.querySelector('#artile-title');
-        const articleImg = document.querySelector('#artile-image');
-        const articleBody = document.querySelector('#artile-body');
+        // const articleTitle = document.querySelector('#artile-title');
+        // const articleImg = document.querySelector('#artile-image');
+        // const articleBody = document.querySelector('#artile-body');
     };
 
     // READ
