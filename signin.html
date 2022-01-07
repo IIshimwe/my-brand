@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New article</title>
+    <title>Signin - My Brand - Admin</title>
     <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,6 @@
 
 <body>
     <!-- NAVBAR SECTION -->
-
     <header>
         <nav class="nav collapsible">
             <a class="nav__brand" href="/"><img src="images/logo.png" alt=""></a>
@@ -27,38 +26,33 @@
             <ul class="list nav__list collapsible__content">
                 <li class="nav__item"><a href="#">Projects</a></li>
                 <li class="nav__item"><a href="/blogs.html">Blogs</a></li>
-                <li class="nav__item"><a href="/index.html#form__container">Contact</a></li>
+                <li class="nav__item"><a href="#form__container">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- New article creation -->
-    <section class="block new-article-wrapper">
-        <fieldset class="container">
-            <legend>New article</legend>
-            <form>
+    <!-- Login -->
+    <div class="block login-form">
+        <div class="login-form-container">
+            <h2>Login</h2>
+            <form id="signin-form">
                 <div class="form-group">
-                    <label for="article-title">Title</label>
-                    <input class="input" type="text" name="article-title">
-                </div>
-                <div class="form-group file-input-image">
-                    <div>
-                        <label for="article-image">Image</label>
-                        <input class="input input-choose-file" type="file" name="article-image"
-                            accept="image/png, image/jpeg" onchange="chooseFile(event)">
-                    </div>
-                    <div class="image-file"></div>
+                    <label for="login-email">Email <span>*</span></label>
+                    <input class="input" type="email" name="login-email" placeholder="e.g. johndoe@example.com">
+                    <div class="error-txt hide-error-txt">Name cannot be empty</div>
                 </div>
                 <div class="form-group">
-                    <label for="article-body">Body</label>
-                    <textarea class="input" name="article-body"></textarea>
+                    <label for="login-password">Password <span>*</span></label>
+                    <input class="input" type="password" name="login-password" placeholder="....................">
+                    <div class="error-txt hide-error-txt">Email cannot be empty or invalid</div>
                 </div>
-                <button onclick="mainFunc.Create()" class="btn btn--accentt form__button">Post</button>
+                <button class="btn btn--accentt btn-login">Login</button>
             </form>
-        </fieldset>
-    </section>
+        </div>
+    </div>
 
     <!-- FOOTER SECTION -->
+
     <footer class="container">
         <div class="footer__address">
             <div class="footer__home-address">
@@ -107,6 +101,7 @@
     <!-- FIREBASE FILE  -->
     <script src="js/firebase.js"></script>
     <!-- JAVASCRIPT FILE -->
+    <script src="js/auth.js"></script>
     <script src="js/main.js"></script>
 </body>
 

@@ -1,4 +1,3 @@
-// HOLDS FIREBASE CONFIG
 let app_firebase = {};
 
 
@@ -22,6 +21,7 @@ let app_firebase = {};
     // CREATE
     const createFunc = (path, body, errorMessage) => {
         if (!path || !body) return;
+
         app_firebase.database().ref(path).push(body, errorMessage);
     };
 
