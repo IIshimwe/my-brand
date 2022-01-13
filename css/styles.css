@@ -856,7 +856,7 @@ input[type="password"] {
 }
 
 .dashboard__blogs {
-  padding: 5rem 2rem 2rem;
+  padding: 0 2rem 2rem;
   max-width: 90rem;
   margin-left: 0;
 }
@@ -916,15 +916,28 @@ input[type="password"] {
 
 /* Dashboard - VISITORS MESSAGES */
 
-
 summary {
-  color: var(--color-headings);
+  color: var(--color-contact);
   cursor: pointer;
   margin-bottom: .5rem;
 }
 
 details div {
   margin-bottom: 3rem;
+}
+
+.visitors-messages {
+  margin-left: 8rem;
+  max-width: 40rem;
+  padding:1rem 2rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  max-height: 100%;
+  text-overflow: ellipsis;
+}
+
+.visitors-messages h4 {
+  color: var(--color-headings);
+  margin-bottom: 2rem;
 }
 
 /* Whole blog */
