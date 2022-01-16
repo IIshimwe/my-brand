@@ -8,9 +8,3 @@
     services dir
     utils/helpers dir
 */
-
-// test/unit dir
-/*
-service dir
-utils dir
-*/
