@@ -1,7 +1,8 @@
-const bcrypt = require('bcrypt');
-const _ = require('lodash');
-const { User, validate } = require('../models/user');
-const express = require('express');
+import jwt from 'jsonwebtoken';
+import bcrypt from 'bcrypt';
+import { pick } from 'lodash';
+import { User, validate } from '../models/user';
+import express from 'express';
 const router = express.Router();
 
 router.post('/', async (req, res) => {
@@ -11,13 +12,14 @@ router.post('/', async (req, res) => {
     let user = await User.findOne({ email: req.body.email });
     if (user) return res.status(400).send('User already regisered');
 
-    user = new User(_.pick(req.body, ['name', 'email', 'password']));
+    user = new User(pick(req.body, ['name', 'email', 'password']));
     const salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(req.body.password, salt);
     user = await user.save();
 
-    res.send(_.pick(user, ['name', 'email']));
+    const token = jwt.sign({ _id: user._id }, process.env.CAPSTONE_SECRET_KEY);
+    res.header('x-auth-token', token).send(pick(user, ['name', 'email']));
 
 });
 
-module.exports = router;
+export default router;

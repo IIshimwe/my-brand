@@ -1,7 +1,9 @@
-const Joi = require('joi');
-const bcrypt = require('bcrypt');
-const { User } = require('../models/user');
-const express = require('express');
+import('dotenv/config');
+import jwt from 'jsonwebtoken';
+import Joi from 'joi';
+import bcrypt from 'bcrypt';
+import { User } from '../models/user';
+import express from 'express';
 const router = express.Router();
 
 router.post('/', async (req, res) => {
@@ -14,7 +16,13 @@ router.post('/', async (req, res) => {
     const validPassword = await bcrypt.compare(req.body.password, user.password);
     if (!validPassword) return res.status(400).send('Invalid email or password');
 
-    res.send(true);
+    if (!process.env.CAPSTONE_SECRET_KEY) {
+        console.error('FATAL ERROR: secretKey is not defined');
+        process.exit(1);
+    }
+
+    const token = jwt.sign({ _id: user._id }, process.env.CAPSTONE_SECRET_KEY);
+    res.send(token);
 
 });
 
@@ -27,4 +35,4 @@ function validate(req) {
     return Joi.validate(req, schema);
 }
 
-module.exports = router;
+export default router;

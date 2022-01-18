@@ -1,14 +1,17 @@
-const auth = require('./routes/auth');
-const users = require('./routes/users');
-const mongoose = require('mongoose');
-const express = require('express');
+import('dotenv/config');
+import auth from './routes/auth.js';
+import users from './routes/users.js';
+import { connect } from 'mongoose';
+import express, { json } from 'express';
+import cookieParser from 'cookie-parser';
 const app = express();
 
-mongoose.connect('mongodb://localhost/capstone')
+connect('mongodb://localhost/capstone')
     .then(() => console.log('Connected to mongoDB'))
     .catch(err => console.error('Could not connect to MongoDBNamespace...', err));
 
-app.use(express.json());
+app.use(json());
+app.use(cookieParser());
 app.use('/api/users', users);
 app.use('/api/auth', auth);
 
