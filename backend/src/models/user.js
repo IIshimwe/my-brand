@@ -1,4 +1,5 @@
 import Joi from 'joi';
+import jwt from 'jsonwebtoken';
 import mongoose from 'mongoose';
 
 const userSchema = new mongoose.Schema({
@@ -20,9 +21,13 @@ const userSchema = new mongoose.Schema({
         required: true,
         minlength: 5,
         maxlength: 1024
-    }
+    },
+    isAdmin: Boolean
 });
 
+userSchema.methods.generateAuthToken = function () {
+    return jwt.sign({ _id: this._id }, process.env.CAPSTONE_SECRET_KEY);
+};
 
 const User = mongoose.model('User', userSchema);
 

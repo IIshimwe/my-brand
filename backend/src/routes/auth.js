@@ -1,5 +1,4 @@
 import('dotenv/config');
-import jwt from 'jsonwebtoken';
 import Joi from 'joi';
 import bcrypt from 'bcrypt';
 import { User } from '../models/user';
@@ -21,7 +20,7 @@ router.post('/', async (req, res) => {
         process.exit(1);
     }
 
-    const token = jwt.sign({ _id: user._id }, process.env.CAPSTONE_SECRET_KEY);
+    const token = user.generateAuthToken();
     res.send(token);
 
 });

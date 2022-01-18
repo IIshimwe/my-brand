@@ -1,9 +1,13 @@
-import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import { pick } from 'lodash';
 import { User, validate } from '../models/user';
 import express from 'express';
 const router = express.Router();
+
+// router.get('/api/users/me', autho, async (req, res) => {
+//     const user = User.findById(req.user._id).select('-password');
+//     res.send(user);
+// });
 
 router.post('/', async (req, res) => {
     const { error } = validate(req.body);
@@ -17,7 +21,7 @@ router.post('/', async (req, res) => {
     user.password = await bcrypt.hash(req.body.password, salt);
     user = await user.save();
 
-    const token = jwt.sign({ _id: user._id }, process.env.CAPSTONE_SECRET_KEY);
+    const token = user.generateAuthToken();
     res.header('x-auth-token', token).send(pick(user, ['name', 'email']));
 
 });
