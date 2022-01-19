@@ -26,4 +26,11 @@ router.get('/:id', autho, async (req, res) => {
     res.send(query);
 });
 
+router.delete('/:id', autho, async (req, res) => {
+    const query = await Querie.findByIdAndRemove(req.params.id);
+    if (!query) return res.status(404).send('Sorry! Message with the given ID was not found.');
+
+    res.send('Message deleted successfully');
+});
+
 export default router;
