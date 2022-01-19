@@ -1,3 +1,4 @@
+import Joi from 'joi';
 import mongoose from 'mongoose';
 
 const articleSchema = new mongoose.Schema({
