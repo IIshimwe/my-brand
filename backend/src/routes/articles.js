@@ -17,4 +17,10 @@ router.post('/', async (req, res) => {
     res.send(article);
 });
 
+router.get('/', async (req, res) => {
+    const articles = await Article.find();
+    res.send(articles);
+});
+
+
 export default router;
