@@ -14,6 +14,7 @@ connect('mongodb://localhost/capstone')
 app.use(json());
 // Articles endpoints
 app.use('/api/blogs', articles);
+
 // Authentication endpoints
 app.use(cookieParser());
 app.use('/api/users', users);
