@@ -30,5 +30,18 @@ router.get('/:id', async (req, res) => {
     res.send(article);
 });
 
+// Should protect this route with auth
+router.put('/:id', async (req, res) => {
+    const { error } = validate(req.body);
+    if (error) return res.status(400).send(error.details[0].message);
+
+    const article = await Article.findByIdAndUpdate(req.params.id, pick(req.body, ['title', 'author', 'content']), {
+        new: true
+    });
+
+    if (!article) return res.status(404).send('The article with the given ID was not found.');
+
+    res.send(article);
+});
 
 export default router;
