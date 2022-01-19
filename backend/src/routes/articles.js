@@ -44,4 +44,13 @@ router.put('/:id', async (req, res) => {
     res.send(article);
 });
 
+// Should protect this route with auth  [auth, admin],
+router.delete('/:id', async (req, res) => {
+    const article = await Article.findByIdAndRemove(req.params.id);
+
+    if (!article) return res.status(404).send('The article with the given ID was not found.');
+
+    res.send(article);
+});
+
 export default router;
