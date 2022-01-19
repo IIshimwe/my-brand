@@ -1,4 +1,5 @@
 import('dotenv/config');
+import articles from './routes/articles';
 import auth from './routes/auth.js';
 import users from './routes/users.js';
 import { connect } from 'mongoose';
@@ -11,6 +12,9 @@ connect('mongodb://localhost/capstone')
     .catch(err => console.error('Could not connect to MongoDBNamespace...', err));
 
 app.use(json());
+// Articles endpoints
+app.use('/api/blogs', articles);
+// Authentication endpoints
 app.use(cookieParser());
 app.use('/api/users', users);
 app.use('/api/auth', auth);
