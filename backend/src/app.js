@@ -1,4 +1,5 @@
 import('dotenv/config');
+import query from './routes/queries';
 import articles from './routes/articles';
 import auth from './routes/auth.js';
 import users from './routes/users.js';
@@ -14,6 +15,8 @@ connect('mongodb://localhost/capstone')
 app.use(json());
 // Articles endpoints
 app.use('/api/blogs', articles);
+app.use('/contact', query);
+
 // Authentication endpoints
 app.use(cookieParser());
 app.use('/api/users', users);
