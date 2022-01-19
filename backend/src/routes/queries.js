@@ -19,4 +19,11 @@ router.get('/', autho, async (req, res) => {
     res.send(queries);
 });
 
+router.get('/:id', autho, async (req, res) => {
+    const query = await Querie.findById(req.params.id);
+    if (!query) return res.status(404).send('Sorry! Message with the given ID was not found.');
+
+    res.send(query);
+});
+
 export default router;
