@@ -13,15 +13,26 @@ const articleSchema = new mongoose.Schema({
     // },
     author: {
         type: String,
-        required: true
+        required: true,
+        maxlength: 50
     },
     content: {
         type: String,
         required: true,
-        unique: true
+        maxlength: 1024
     }
 }, { timestamps: true });
 
 const Article = mongoose.model('Article', articleSchema);
 
-export default Article;
+function validateBlog(article) {
+    const schema = {
+        title: Joi.string().min(10).max(255).required(),
+        author: Joi.string().min(5).max(50).required(),
+        content: Joi.string().min(10).max(1024).required()
+    };
+
+    return Joi.validate(article, schema);
+}
+
+export { Article, validateBlog as validate };
