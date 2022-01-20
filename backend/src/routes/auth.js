@@ -5,7 +5,7 @@ import { User } from '../models/user';
 import express from 'express';
 const router = express.Router();
 
-router.post('/', async (req, res) => {
+router.post('/', async (req, res, next) => {
     const { error } = validate(req.body);
     if (error) return res.status(400).send(error.details[0].message);
 
@@ -21,8 +21,10 @@ router.post('/', async (req, res) => {
     }
 
     const token = user.generateAuthToken();
-    res.send(token);
-
+    // res.send(token);
+    const maxAge = 3 * 60 * 60 * 24;
+    res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
+    next();
 });
 
 function validate(req) {
