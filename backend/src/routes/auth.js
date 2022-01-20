@@ -22,7 +22,9 @@ router.post('/', async (req, res) => {
 
     const token = user.generateAuthToken();
     res.send(token);
-
+    // const maxAge = 3 * 60 * 60 * 24;
+    // res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
+    // next();
 });
 
 function validate(req) {

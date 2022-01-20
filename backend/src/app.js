@@ -1,7 +1,9 @@
 import('dotenv/config');
 import('express-async-errors');
-import express, { json } from 'express';
+
+import express from 'express';
 const app = express();
+
 require('./startup/routes')(app);
 require('./startup/db')();
 

@@ -6,7 +6,7 @@
   "scripts": {
     "build": "babel --copy-files src --out-dir dist",
     "start": "nodemon --exec babel-node src/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "ISHIMWE Isaac",
   "license": "MIT",
@@ -27,6 +27,7 @@
     "@babel/core": "^7.16.7",
     "@babel/node": "^7.16.8",
     "@babel/preset-env": "^7.16.8",
+    "jest": "^27.4.7",
     "nodemon": "^2.0.15"
   }
 }
