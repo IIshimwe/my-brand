@@ -9,7 +9,7 @@ const router = express.Router();
 //     res.send(user);
 // });
 
-router.post('/', async (req, res, next) => {
+router.post('/', async (req, res) => {
     const { error } = validate(req.body);
     if (error) return res.status(400).send(error.details[0].message);
 
@@ -22,10 +22,10 @@ router.post('/', async (req, res, next) => {
     user = await user.save();
 
     const token = user.generateAuthToken();
-    // res.header('x-auth-token', token).send(pick(user, ['name', 'email']));
-    const maxAge = 3 * 60 * 60 * 24;
-    res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
-    next();
+    res.header('x-auth-token', token).send(pick(user, ['name', 'email']));
+    // const maxAge = 3 * 60 * 60 * 24;
+    // res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
+    // next();
 
 });
 
