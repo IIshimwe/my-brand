@@ -1,5 +1,5 @@
 import articles from '../routes/articles';
-import query from './routes/queries';
+import query from '../routes/queries';
 import auth from '../routes/auth.js';
 import users from '../routes/users.js';
 import { json } from 'express';
