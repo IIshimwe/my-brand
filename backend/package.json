@@ -6,7 +6,7 @@
   "scripts": {
     "build": "babel --copy-files src --out-dir dist",
     "start": "nodemon --exec babel-node src/app.js",
-    "test": "jest"
+    "test": "jest --watchAll --verbose"
   },
   "author": "ISHIMWE Isaac",
   "license": "MIT",
