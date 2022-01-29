@@ -51,6 +51,34 @@ loginInputs.forEach(input => {
     });
 });
 
+
+btnLogin.addEventListener('click', async (e) => {
+    isValidationOn = true;
+    e.preventDefault();
+    validateLoginInputs();
+
+    const email = adminEmailInput.value;
+    const password = adminPasswordInput.value;
+
+    const response = await postApi('POST', 'auth', JSON.stringify({
+        email,
+        password
+    }));
+
+    console.log(response);
+
+    if (response && !response.error) {
+        const { token } = response;
+        localStorage.setItem('token', token);
+        window.location.href = 'http://127.0.0.1:5500/dashboard.html';
+        return;
+    }
+
+});
+
+
+// FIREBASE STUFF
+
 // firebase.auth().createUserWithEmailAndPassword(email = 'isaac@gmail.com', password = 'o0o0o0')
 //     .then((userCredential) => {
 //         const user = userCredential.user;
@@ -60,23 +88,14 @@ loginInputs.forEach(input => {
 //         console.log(error.message);
 //     });
 
-btnLogin.addEventListener('click', e => {
-    isValidationOn = true;
-    e.preventDefault();
-    validateLoginInputs();
 
-    const adminEmailValue = adminEmailInput.value;
-    const adminPasswordValue = adminPasswordInput.value;
+// firebase.auth().signInWithEmailAndPassword(adminEmailValue, adminPasswordValue)
+//         .then((userCredential) => {
+    //             // window.location.href = '../dashboard.html';
+//             window.location.replace("dashboard.html");
+//             console.log(`This user ${userCredential.user.uid} is signed in`);
 
-    firebase.auth().signInWithEmailAndPassword(adminEmailValue, adminPasswordValue)
-        .then((userCredential) => {
-            // window.location.href = '../dashboard.html';
-            window.location.replace("dashboard.html");
-            console.log(`This user ${userCredential.user.uid} is signed in`);
-
-        })
-        .catch((error) => {
-            console.log(error);
-        });
-
-});
+//         })
+//         .catch((error) => {
+    //             console.log(error);
+    //         });
