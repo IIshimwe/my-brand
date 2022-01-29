@@ -2,7 +2,6 @@
 const nameInput = document.querySelector("#contact-name-input");
 const emailInput = document.querySelector("#contact-email-input");
 const messageInput = document.querySelector("#contact-message-input");
-const contactBtn = document.querySelector("#contact-btn");
 const contactForm = document.getElementById("contact__form");
 const thankYouMessage = document.getElementById("thank-you-msg");
 
@@ -42,7 +41,7 @@ emailInput.addEventListener('input', () => {
     validateInputs();
 });
 
-contactBtn.addEventListener('click', (e) => {
+contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
     isValidationOn = true;
     validateInputs();
@@ -54,30 +53,30 @@ contactBtn.addEventListener('click', (e) => {
     }
 });
 
-// Send message
-let messages = {};
-const messageHandler = (error) => {
-    if (error)
-        console.log(error);
-    console.log('Request handled successfully');
-};
+// // Send message
+// let messages = {};
+// const messageHandler = (error) => {
+//     if (error)
+//         console.log(error);
+//     console.log('Request handled successfully');
+// };
 
-(function () {
-    function createMessage() {
-        const path = `Queries/`;
-        const name = nameInput.value;
-        const email = emailInput.value;
-        const msg = messageInput.value;
+// (function () {
+//     function createMessage() {
+//         const path = `Queries/`;
+//         const name = nameInput.value;
+//         const email = emailInput.value;
+//         const msg = messageInput.value;
 
-        if (name !== "" && email !== "" && msg !== "") {
-            const createQuery =
-            {
-                name,
-                email,
-                msg
-            };
-            app_firebase.databaseAPI.create(path, createQuery, messageHandler);
-        }
-    }
-    messages.Create = createMessage;
-})();
+//         if (name !== "" && email !== "" && msg !== "") {
+//             const createQuery =
+//             {
+//                 name,
+//                 email,
+//                 msg
+//             };
+//             app_firebase.databaseAPI.create(path, createQuery, messageHandler);
+//         }
+//     }
+//     messages.Create = createMessage;
+// })();

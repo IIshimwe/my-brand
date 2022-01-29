@@ -13,6 +13,7 @@
     <!-- CSS Sheet -->
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/styles.css">
+
 </head>
 
 <body>
@@ -26,7 +27,7 @@
             <ul class="list nav__list collapsible__content">
                 <li class="nav__item"><a href="#">Projects</a></li>
                 <li class="nav__item"><a href="/blogs.html">Blogs</a></li>
-                <li class="nav__item"><a href="#form__container">Contact</a></li>
+                <li class="nav__item"><a href="index.html#form__container">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -38,15 +39,17 @@
             <form id="signin-form">
                 <div class="form-group">
                     <label for="login-email">Email <span>*</span></label>
-                    <input class="input" type="email" name="login-email" placeholder="e.g. johndoe@example.com">
+                    <input class="input" type="email" name="login-email" placeholder="e.g. johndoe@example.com"
+                        required>
                     <div class="error-txt hide-error-txt">Name cannot be empty</div>
                 </div>
                 <div class="form-group">
                     <label for="login-password">Password <span>*</span></label>
-                    <input class="input" type="password" name="login-password" placeholder="....................">
+                    <input class="input" type="password" name="login-password" placeholder="...................."
+                        required>
                     <div class="error-txt hide-error-txt">Email cannot be empty or invalid</div>
                 </div>
-                <button class="btn btn--accentt btn-login">Login</button>
+                <button type="submit" class="btn btn--accentt btn-login">Login</button>
             </form>
         </div>
     </div>
@@ -93,15 +96,17 @@
     </footer>
 
     <!-- CONNECT TO FIREBASE REMOTE FILES -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script> -->
 
     <!-- FIREBASE FILE  -->
-    <script src="js/firebase.js"></script>
+    <!-- <script src="js/firebase.js"></script> -->
+
     <!-- JAVASCRIPT FILE -->
-    <script src="js/auth.js"></script>
+    <script src="js/util/fetch.js"></script>
+    <script type="module" src="js/auth.js"></script>
     <script src="js/main.js"></script>
 </body>
 
