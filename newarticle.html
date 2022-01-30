@@ -37,10 +37,14 @@
     <section class="block new-article-wrapper">
         <fieldset class="container">
             <legend>New article</legend>
-            <form class="create-new-article">
+            <form class="create-new-article" onsubmit="(e) => e.preventDefault()">
                 <div class="form-group">
                     <label for="article-title">Title</label>
-                    <input class="input" type="text" name="article-title">
+                    <input class="input" type="text" id="article-title" name="article-title">
+                </div>
+                <div class="form-group">
+                    <label for="article-author">Author</label>
+                    <input class="input" type="text" id="article-author" name="article-author">
                 </div>
                 <div class="form-group file-input-image">
                     <div>
@@ -52,10 +56,10 @@
                 </div>
                 <div class="form-group">
                     <label for="article-body">Body</label>
-                    <textarea class="input" name="article-body"></textarea>
+                    <textarea class="input" id="article-body" name="article-body"></textarea>
                 </div>
                 <!-- <button onclick="mainFunc.Create()" class="btn btn--accentt form__button">Post</button> -->
-                <button class="btn btn--accentt form__button">Post</button>
+                <button type="button" id="post-blog-button" class="btn btn--accentt form__button">Post</button>
             </form>
         </fieldset>
     </section>
@@ -109,6 +113,8 @@
     <!-- FIREBASE FILE  -->
     <script src="js/firebase.js"></script>
     <!-- JAVASCRIPT FILE -->
+    <script src="js/util/fetch.js"></script>
+    <script src="js/blogs.js"></script>
     <script src="js/main.js"></script>
 </body>
 
