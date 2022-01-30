@@ -49,7 +49,7 @@ window.onload = function () {
 async function handleDelete(id) {
     const response = await postApi('DELETE', `blogs/${id}`);
     if (response && response._id) {
-        alert('Message deleted successfully');
+        alert('Post deleted');
         window.location.href = `${FRONTEND_URL}dashboard.html`;
     }
 }

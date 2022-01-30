@@ -34,7 +34,7 @@ getApi(url).then(messages => renderMessages(messages));
 async function handleDelete(id) {
     const response = await postApi('DELETE', `contact/${id}`);
     if (response && response._id) {
-        alert('Post deleted');
+        alert('Message deleted successfully');
         window.location.href = `${FRONTEND_URL}dashboard.html`;
     }
 }
