@@ -68,7 +68,7 @@ btnLogin.addEventListener('click', async (e) => {
     if (response && !response.error) {
         const { token } = response;
         localStorage.setItem('token', token);
-        window.location.href = 'http://127.0.0.1:5500/dashboard.html';
+        window.location.href = `${FRONTEND_URL}dashboard.html`;
         return;
     }
 

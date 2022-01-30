@@ -15,11 +15,11 @@ const handleError = (error) => {
 
 const getApi = async (url) => {
     const token = localStorage.getItem('token');
-    return fetch(`http://localhost:9000/${url}`, {
+    return fetch(`${BACKEND_URL}${url}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            'x-access-token': token || '',
+            'x-auth-token': token || '',
         },
     })
         .then(handleResponse)
@@ -29,7 +29,7 @@ const getApi = async (url) => {
 
 const postApi = async (method, url, data) => {
     const token = localStorage.getItem('token');
-    return fetch(`http://localhost:9000/${url}`, {
+    return fetch(`${BACKEND_URL}${url}`, {
         method,
         mode: 'cors',
         cache: 'reload',

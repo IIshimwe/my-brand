@@ -16,7 +16,7 @@ function renderArticles(articles) {
                 <h3>Other Articles</h3>
             </div>
         `;
-        url = `http://localhost:9000/blogs/${article._id}`;
+        url = `${BACKEND_URL}blogs/${article._id}`;
     });
     wholeBlog.innerHTML = displayResults;
 }

@@ -6,7 +6,7 @@ const visitorEmailInput = document.getElementById('contact-email-input');
 const visitorMessageInput = document.getElementById('contact-message-input');
 
 // const url = 'https://atlp-capstone.herokuapp.com/contact';
-const url = 'http://localhost:9000/contact';
+const url = 'contact';
 let displayResults = '';
 
 function renderMessages(messages) {
@@ -28,30 +28,29 @@ function renderMessages(messages) {
 }
 
 // READ DATA
-fetch(url).then(res => res.json()).then(data => renderMessages(data));
+getApi(url).then(messages => renderMessages(messages));
 
+// // CREATE NEW MESSAGE
+// contactBtn.addEventListener('click', (e) => {
+//     e.preventDefault();
 
-// CREATE NEW MESSAGE
-contactBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-
-    fetch(url, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            fullname: fullnameInput.value,
-            email: visitorEmailInput.value,
-            msg: visitorMessageInput.value
-        })
-    }).then(async res => console.log(await res.json()))
-        .then(data => {
-            const dataArr = [];
-            dataArr.push(data);
-            renderMessages(dataArr);
-        });
-});
+//     fetch(url, {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify({
+//             fullname: fullnameInput.value,
+//             email: visitorEmailInput.value,
+//             msg: visitorMessageInput.value
+//         })
+//     }).then(async res => console.log(await res.json()))
+//         .then(data => {
+//             const dataArr = [];
+//             dataArr.push(data);
+//             renderMessages(dataArr);
+//         });
+// });
 
 
 
@@ -75,7 +74,7 @@ contactBtn.addEventListener('click', (e) => {
     if (response && !response.error) {
         const { token } = response;
         localStorage.setItem('token', token);
-        window.location.href = 'http://127.0.0.1:5500/dashboard.html';
+        window.location.href = '${FRONTEND_URL}dashboard.html';
         return;
     }
 
