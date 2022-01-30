@@ -65,8 +65,6 @@ btnLogin.addEventListener('click', async (e) => {
         password
     }));
 
-    console.log(response);
-
     if (response && !response.error) {
         const { token } = response;
         localStorage.setItem('token', token);
