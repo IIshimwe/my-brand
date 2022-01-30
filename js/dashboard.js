@@ -1,5 +1,5 @@
 const token = localStorage.getItem('token');
-if (!token) window.location.href = 'http://127.0.0.1:5500/signin.html';
+if (!token) window.location.href = `${FRONTEND_URL}signin.html`;
 
 // LOGOUT
 window.onload = function () {
@@ -7,20 +7,19 @@ window.onload = function () {
 
     logoutButton.addEventListener('click', () => {
         localStorage.removeItem('token');
-        window.location.href = 'http://127.0.0.1:5500/index.html';
+        window.location.href = `${FRONTEND_URL}index.html`;
     });
 
 
 
     // BLOGS
     const dashboardBlog = document.querySelector(".dashboard-blog-wrapper");
-    const url = 'http://localhost:9000/blogs';
+    const url = `${BACKEND_URL}blogs`;
     let displayResults = '';
 
     function renderArticles(articles) {
         articles.forEach(article => {
             displayResults += `
-
             <article class="dashboard-blog">
                 <section class="dashboard-blog__image">
                     <img src="images/profile.jpg" alt="Alticle picture">
@@ -51,6 +50,6 @@ async function handleDelete(id) {
     const response = await postApi('DELETE', `blogs/${id}`);
     if (response && response._id) {
         alert('Post deleted');
-        window.location.href = 'http://127.0.0.1:5500/dashboard.html';
+        window.location.href = `${FRONTEND_URL}dashboard.html`;
     }
 }

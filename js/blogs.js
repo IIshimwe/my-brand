@@ -2,7 +2,7 @@ const blogWrapper = document.querySelector(".blog-container");
 const otherBlogs = document.querySelector(".recent-article");
 
 // const url = 'https://atlp-capstone.herokuapp.com/contact';
-const url = 'http://localhost:9000/blogs';
+const url = '${BACKEND_URL}blogs';
 let displayResults = '';
 let output = '';
 
@@ -13,7 +13,7 @@ function renderArticles(articles) {
             <div class="blog__header">
                 <h1>${article.title}</h1>
                 <p>${article.content}</p>
-                <div><a href="http://localhost:9000/blogs/${article._id}" class="link-arrow">Read more</a></div>
+                <div><a href="${BACKEND_URL}blogs/${article._id}" class="link-arrow">Read more</a></div>
             </div>
             <div class="blog__image">
                 <img src="/images/profile.jpg" alt="">
