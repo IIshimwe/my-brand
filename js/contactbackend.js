@@ -19,7 +19,7 @@ function renderMessages(messages) {
                 <div class="blog-header__icon">
                     <a href="mailto:${msg.email}" target="_blank" class="icon-link"><i
                         class="fas fa-reply"></i></a>
-                    <a href="#" class="icon-link" onclick="handleDelete('${msg._id}')"><i class="far fa-trash-alt"></i></a>
+                    <a href="#" class="icon-link" onclick="handleDeleteMessage('${msg._id}')"><i class="far fa-trash-alt"></i></a>
                 </div>
             </details>
         `;
@@ -31,7 +31,7 @@ function renderMessages(messages) {
 getApi(url).then(messages => renderMessages(messages));
 
 
-async function handleDelete(id) {
+async function handleDeleteMessage(id) {
     const response = await postApi('DELETE', `contact/${id}`);
     if (response && response._id) {
         alert('Message deleted successfully');

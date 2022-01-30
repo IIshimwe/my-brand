@@ -1,8 +1,14 @@
+
 const blogWrapper = document.querySelector(".blog-container");
 const otherBlogs = document.querySelector(".recent-article");
+window.onload = function () {
+    const postBlogBtn = document.getElementById('post-blog-button');
+    postBlogBtn.addEventListener('click', () => createBlog());
+
+};
 
 // const url = 'https://atlp-capstone.herokuapp.com/contact';
-const url = '${BACKEND_URL}blogs';
+const url = `${BACKEND_URL}blogs`;
 let displayResults = '';
 let output = '';
 
@@ -41,14 +47,20 @@ fetch(url).then(res => res.json()).then(data => renderArticles(data));
 fetch(url).then(res => res.json()).then(data => renderData(data));
 
 // POST A BLOG
-// fetch(url, {
-//     method: 'POST',
-//     headers: {
-//         'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify({
-//         title: '',
-//         author: '',
-//         content: ''
-//     })
-// }).then(re => { return res.json(); }).catch(err => console.log(err));
+async function createBlog() {
+    const title = document.getElementById('article-title').value;
+    const author = document.getElementById('article-author').value;
+    const body = document.getElementById('article-body').value;
+    const response = await postApi('POST', 'blogs', JSON.stringify({
+        title,
+        author,
+        content: body
+    }));
+
+    if (response && response._id) {
+        alert('post created');
+        window.location.href = `${FRONTEND_URL}dashboard.html`;
+    } else {
+        alert('An error occured');
+    }
+}
