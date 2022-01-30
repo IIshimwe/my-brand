@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/util/global.js"></script>
+    <script src="js/util/fetch.js"></script>
 </head>
 
 <body>
@@ -85,7 +86,7 @@
         </header>
 
         <div id="form__container">
-            <form class="contact-form" id="contact__form">
+            <form class="contact-form" id="contact__form" onsubmit="(e) => e.preventDefault()">
                 <div class="form-group">
                     <label for="name">Names <span>*</span></label>
                     <input class="input" type="text" name="name" placeholder="John Doe" id="contact-name-input">
@@ -104,7 +105,7 @@
                 <!-- <button type="submit" class="btn btn--accentt" id="contact-btn">Send</button> -->
                 <!-- <button type="submit" onclick="messages.Create()" class="btn btn--accentt"
                     id="contact-btn">Send</button> -->
-                <button type="submit" class="btn btn--accentt" id="contact-btn">Send</button>
+                <button type="button" class="btn btn--accentt" id="contact-btn">Send</button>
             </form>
             <div class="hide-error-txt" id="thank-you-msg">Thank you! Your message has been sent. <a
                     href="/my-brand">Back
@@ -162,6 +163,7 @@
     <!-- FIREBASE FILE  -->
     <!-- <script src="js/firebase.js"></script> -->
     <!-- JAVASCRIPT FILE -->
+    <script src="js/createMessage.js"></script>
     <script src="js/contactbackend.js"></script>
     <script src="js/contactformvalidation.js"></script>
     <script src="js/main.js"></script>

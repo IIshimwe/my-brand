@@ -5,13 +5,14 @@ const fullnameInput = document.getElementById('contact-name-input');
 const visitorEmailInput = document.getElementById('contact-email-input');
 const visitorMessageInput = document.getElementById('contact-message-input');
 
+
 // const url = 'https://atlp-capstone.herokuapp.com/contact';
 const url = 'contact';
-let displayResults = '';
+let displayMessages = '';
 
 function renderMessages(messages) {
     messages.forEach(msg => {
-        displayResults +=
+        displayMessages +=
             `
             <details>
                 <summary>${msg.fullname}</summary>
@@ -24,7 +25,7 @@ function renderMessages(messages) {
             </details>
         `;
     });
-    userMessageWrapper.innerHTML = displayResults;
+    userMessageWrapper.innerHTML = displayMessages;
 }
 
 // READ DATA
@@ -90,3 +91,5 @@ async function handleDeleteMessage(id) {
 
 });
  */
+
+

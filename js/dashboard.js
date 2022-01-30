@@ -1,21 +1,16 @@
 const token = localStorage.getItem('token');
 if (!token) window.location.href = `${FRONTEND_URL}signin.html`;
+let displayResults = '';
 
 // LOGOUT
 window.onload = function () {
     const logoutButton = document.getElementById('log-out');
+    const dashboardBlog = document.querySelector(".dashboard-blog-wrapper");
 
     logoutButton.addEventListener('click', () => {
         localStorage.removeItem('token');
         window.location.href = `${FRONTEND_URL}index.html`;
     });
-
-
-
-    // BLOGS
-    const dashboardBlog = document.querySelector(".dashboard-blog-wrapper");
-    const url = `${BACKEND_URL}blogs`;
-    let displayResults = '';
 
     function renderArticles(articles) {
         articles.forEach(article => {
@@ -41,9 +36,7 @@ window.onload = function () {
         dashboardBlog.innerHTML = displayResults;
     }
 
-    fetch(url).then(res => res.json()).then(data => renderArticles(data));
-
-
+    getApi(`blogs`).then(articles => renderArticles(articles));
 };
 
 async function handleDelete(id) {
